@@ -48,7 +48,6 @@ class FirebaseAuthInterceptor(ServerInterceptor):
 
         try:
             decoded_token = auth.verify_id_token(token.split(" ")[1].strip())
-            handler_call_details.invocation_metadata.append(("uid", decoded_token.get("uid")))
         except Exception:
             return self._invalid_token
 
